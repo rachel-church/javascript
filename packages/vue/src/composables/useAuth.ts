@@ -17,31 +17,25 @@ type CheckAuthorizationSignedOut = undefined;
 type CheckAuthorizationWithoutOrgOrUser = (params?: Parameters<CheckAuthorizationWithCustomPermissions>[0]) => false;
 
 /**
- * @param clerk
  * @internal
  */
-function clerkLoaded(clerk: Ref<Clerk | null>) {
+function clerkLoaded(clerk: Ref<Clerk | null>, loaded: Ref<boolean>) {
   return new Promise<Clerk>(resolve => {
-    if (clerk.value?.loaded) {
-      resolve(clerk.value);
-    }
-
-    const unwatch = watch(clerk, value => {
-      if (value?.loaded) {
+    const unwatch = watch(loaded, value => {
+      if (value) {
         unwatch();
-        resolve(value);
+        resolve(clerk.value!);
       }
     });
   });
 }
 
 /**
- * @param clerk
  * @internal
  */
-function createGetToken(clerk: Ref<Clerk | null>) {
+function createGetToken(clerk: Ref<Clerk | null>, loaded: Ref<boolean>) {
   return async (options: any) => {
-    const loadedClerk = await clerkLoaded(clerk);
+    const loadedClerk = await clerkLoaded(clerk, loaded);
     if (!loadedClerk.session) {
       return null;
     }
@@ -51,12 +45,11 @@ function createGetToken(clerk: Ref<Clerk | null>) {
 }
 
 /**
- * @param clerk
  * @internal
  */
-function createSignOut(clerk: Ref<Clerk | null>) {
+function createSignOut(clerk: Ref<Clerk | null>, loaded: Ref<boolean>) {
   return async (...args: any) => {
-    const loadedClerk = await clerkLoaded(clerk);
+    const loadedClerk = await clerkLoaded(clerk, loaded);
     return loadedClerk.signOut(...args);
   };
 }
@@ -116,13 +109,13 @@ type UseAuthReturn =
     };
 
 export function useAuth(): ToComputedRefs<UseAuthReturn> {
-  const { clerk, authCtx } = useClerkContext();
+  const { clerk, loaded, authCtx } = useClerkContext();
 
   const result = computed<UseAuthReturn>(() => {
     const { sessionId, userId, actor, orgId, orgRole, orgSlug, orgPermissions } = authCtx.value;
 
-    const getToken: GetToken = createGetToken(clerk);
-    const signOut: SignOut = createSignOut(clerk);
+    const getToken: GetToken = createGetToken(clerk, loaded);
+    const signOut: SignOut = createSignOut(clerk, loaded);
 
     const has = (params: Parameters<CheckAuthorizationWithCustomPermissions>[0]) => {
       if (!params?.permission && !params?.role) {
