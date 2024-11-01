@@ -1,0 +1,65 @@
+{
+  "name": "@clerk/vue",
+  "version": "0.0.0",
+  "description": "Clerk SDK for Vue",
+  "keywords": [
+    "clerk",
+    "typescript",
+    "vue",
+    "auth",
+    "authentication",
+    "passwordless",
+    "session",
+    "jwt"
+  ],
+  "homepage": "https://clerk.com/",
+  "bugs": {
+    "url": "https://github.com/clerk/javascript/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clerk/javascript.git",
+    "directory": "packages/vue"
+  },
+  "license": "MIT",
+  "author": "Clerk",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "lint": "eslint src/",
+    "lint:attw": "attw --pack .",
+    "lint:publint": "publint",
+    "publish:local": "npx yalc push --replace --sig"
+  },
+  "dependencies": {
+    "@clerk/shared": "2.11.0",
+    "@clerk/types": "4.29.0",
+    "@vue.ts/tsx-auto-props": "^0.6.0"
+  },
+  "devDependencies": {
+    "typescript": "*"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
