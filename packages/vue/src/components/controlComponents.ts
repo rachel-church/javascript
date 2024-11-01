@@ -1,5 +1,6 @@
 import type {
   CheckAuthorizationWithCustomPermissions,
+  HandleOAuthCallbackParams,
   HandleOAuthCallbackParams as HandleOAuthCallbackParamsOriginal,
   OrganizationCustomPermissionKey,
   OrganizationCustomRoleKey,
@@ -29,9 +30,9 @@ export const SignedOut = defineComponent({
 
 export const ClerkLoaded = defineComponent({
   setup(_props, { slots }) {
-    const { clerk, loaded } = useClerkContext();
+    const { loaded } = useClerkContext();
 
-    return () => (loaded.value ? slots.default?.({ clerk: clerk.value! }) : null);
+    return () => (loaded.value ? slots.default?.() : null);
   },
 });
 
@@ -123,6 +124,7 @@ export const RedirectToCreateOrganization = defineComponent(() => {
 });
 
 // TODO: Fix this later and export `Transferable` type from @clerk/types
+// to fix the exported variable error in TS
 type HandleOAuthCallbackParams = Omit<HandleOAuthCallbackParamsOriginal, 'transferable'> & {
   /**
    * Indicates whether or not sign in attempts are transferable to the sign up flow.
