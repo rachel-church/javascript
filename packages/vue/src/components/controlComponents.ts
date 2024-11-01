@@ -1,6 +1,5 @@
 import type {
   CheckAuthorizationWithCustomPermissions,
-  HandleOAuthCallbackParams,
   HandleOAuthCallbackParams as HandleOAuthCallbackParamsOriginal,
   OrganizationCustomPermissionKey,
   OrganizationCustomRoleKey,
