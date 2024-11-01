@@ -12,7 +12,7 @@ export default defineConfig(() => {
     sourcemap: true,
     minify: false,
     dts: true,
-    plugins: [
+    esbuildPlugins: [
       // Adds runtime props type generation from TS types
       autoPropsPlugin({
         include: ['**/*.ts'],

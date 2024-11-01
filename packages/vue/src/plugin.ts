@@ -11,7 +11,7 @@ export type PluginOptions = LoadClerkJsScriptOptions;
 
 export const clerkPlugin: Plugin = {
   install(app, options: PluginOptions) {
-    // @ts-expect-error: Internal property for SSR
+    // @ts-expect-error: Internal property for SSR frameworks like Nuxt
     const { __internal_clerk_initial_state } = options;
 
     const loaded = ref(false);
