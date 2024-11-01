@@ -10,7 +10,9 @@ type UseSignUpReturn =
   | { isLoaded: false; signUp: undefined; setActive: undefined }
   | { isLoaded: true; signUp: SignUpResource; setActive: SetActive };
 
-export function useSignUp(): ToComputedRefs<UseSignUpReturn> {
+type UseSignUp = () => ToComputedRefs<UseSignUpReturn>;
+
+export const useSignUp: UseSignUp = () => {
   const { clerk, clientCtx } = useClerkContext();
 
   const unwatch = watch(clerk, value => {
@@ -33,4 +35,4 @@ export function useSignUp(): ToComputedRefs<UseSignUpReturn> {
   });
 
   return toComputedRefs(result);
-}
+};

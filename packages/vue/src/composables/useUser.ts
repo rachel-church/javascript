@@ -10,7 +10,9 @@ type UseUserReturn =
   | { isLoaded: true; isSignedIn: false; user: null }
   | { isLoaded: true; isSignedIn: true; user: UserResource };
 
-export function useUser(): ToComputedRefs<UseUserReturn> {
+type UseUser = () => ToComputedRefs<UseUserReturn>;
+
+export const useUser: UseUser = () => {
   const { userCtx } = useClerkContext();
 
   const result = computed<UseUserReturn>(() => {
@@ -26,4 +28,4 @@ export function useUser(): ToComputedRefs<UseUserReturn> {
   });
 
   return toComputedRefs(result);
-}
+};

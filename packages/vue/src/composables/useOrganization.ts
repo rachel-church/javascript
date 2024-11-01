@@ -23,7 +23,9 @@ type UseOrganizationReturn =
       membership: OrganizationMembershipResource | null | undefined;
     };
 
-export function useOrganization(): ToComputedRefs<UseOrganizationReturn> {
+type UseOrganization = () => ToComputedRefs<UseOrganizationReturn>;
+
+export const useOrganization: UseOrganization = () => {
   const { loaded, organizationCtx } = useClerkContext();
   const { session } = useSession();
 
@@ -56,7 +58,7 @@ export function useOrganization(): ToComputedRefs<UseOrganizationReturn> {
   });
 
   return toComputedRefs(result);
-}
+};
 
 function getCurrentOrganizationMembership(
   organizationMemberships: OrganizationMembershipResource[],

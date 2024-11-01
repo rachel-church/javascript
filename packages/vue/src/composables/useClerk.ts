@@ -1,7 +1,7 @@
 import { useClerkContext } from './useClerkContext';
 
-export function useClerk() {
+export const useClerk = () => {
   const { clerk } = useClerkContext();
 
   return clerk;
-}
+};

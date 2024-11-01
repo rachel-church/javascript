@@ -9,7 +9,9 @@ type UseSessionListReturn =
   | { isLoaded: false; sessions: undefined; setActive: undefined }
   | { isLoaded: true; sessions: SessionResource[]; setActive: SetActive };
 
-export function useSessionList(): ToComputedRefs<UseSessionListReturn> {
+type UseSessionList = () => ToComputedRefs<UseSessionListReturn>;
+
+export const useSessionList: UseSessionList = () => {
   const { clerk, clientCtx } = useClerkContext();
 
   const result = computed<UseSessionListReturn>(() => {
@@ -25,4 +27,4 @@ export function useSessionList(): ToComputedRefs<UseSessionListReturn> {
   });
 
   return toComputedRefs(result);
-}
+};

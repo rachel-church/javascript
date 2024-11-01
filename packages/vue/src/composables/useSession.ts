@@ -10,7 +10,9 @@ type UseSessionReturn =
   | { isLoaded: true; isSignedIn: false; session: null }
   | { isLoaded: true; isSignedIn: true; session: ActiveSessionResource };
 
-export function useSession(): ToComputedRefs<UseSessionReturn> {
+type UseSession = () => ToComputedRefs<UseSessionReturn>;
+
+export const useSession: UseSession = () => {
   const { sessionCtx } = useClerkContext();
 
   const result = computed<UseSessionReturn>(() => {
@@ -26,4 +28,4 @@ export function useSession(): ToComputedRefs<UseSessionReturn> {
   });
 
   return toComputedRefs(result);
-}
+};
