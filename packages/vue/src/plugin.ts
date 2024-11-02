@@ -9,6 +9,26 @@ import { VueClerkInjectionKey } from './types';
 
 export type PluginOptions = LoadClerkJsScriptOptions;
 
+/**
+ * Vue plugin for integrating Clerk.
+ *
+ * @example
+ * Basic usage in main.ts:
+ *
+ * ```ts
+ * import { createApp } from 'vue'
+ * import { clerkPlugin } from '@clerk/vue'
+ * import App from './App.vue'
+ *
+ * const app = createApp(App)
+ *
+ * app.use(clerkPlugin, {
+ *   publishableKey: 'pk_'
+ * })
+ *
+ * app.mount('#app')
+ * ```
+ */
 export const clerkPlugin: Plugin = {
   install(app, options: PluginOptions) {
     // @ts-expect-error: Internal property for SSR frameworks like Nuxt

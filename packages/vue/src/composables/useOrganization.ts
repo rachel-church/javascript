@@ -25,6 +25,36 @@ type UseOrganizationReturn =
 
 type UseOrganization = () => ToComputedRefs<UseOrganizationReturn>;
 
+/**
+ * Returns the current [`Organization`](https://clerk.com/docs/references/javascript/organization/organization) object
+ * along with loading states and membership information.
+ *
+ * @example
+ * A simple example:
+ *
+ * <script setup>
+ * import { useOrganization } from '@clerk/vue'
+ *
+ * const { isLoaded, organization, membership } = useOrganization()
+ * </script>
+ *
+ * <template>
+ *   <template v-if="!isLoaded">
+ *     <!-- Handle loading state -->
+ *   </template>
+ *
+ *   <template v-else-if="organization">
+ *     <div>
+ *       <h1>{{ organization.name }}</h1>
+ *       <p>Your role: {{ membership.role }}</p>
+ *     </div>
+ *   </template>
+ *
+ *   <template v-else>
+ *     <div>No active organization</div>
+ *   </template>
+ * </template>
+ */
 export const useOrganization: UseOrganization = () => {
   const { loaded, organizationCtx } = useClerkContext();
   const { session } = useSession();

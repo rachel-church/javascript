@@ -12,6 +12,35 @@ type UseSessionReturn =
 
 type UseSession = () => ToComputedRefs<UseSessionReturn>;
 
+/**
+ * Returns the current [`Session`](https://clerk.com/docs/references/javascript/session) object which provides
+ * information about the active session and methods to manage it.
+ *
+ * @example
+ * A simple example:
+ *
+ * <script setup>
+ * import { useSession } from '@clerk/vue'
+ *
+ * const { isLoaded, session, isSignedIn } = useSession()
+ * </script>
+ *
+ * <template>
+ *   <template v-if="!isLoaded">
+ *     <!-- Handle loading state -->
+ *   </template>
+ *
+ *   <template v-else-if="!isSignedIn">
+ *     <!-- Handle not signed in state -->
+ *   </template>
+ *
+ *   <template v-else>
+ *     <div>
+ *       <p>This session has been active since {{ session.lastActiveAt.toLocaleString() }}</p>
+ *     </div>
+ *   </template>
+ * </template>
+ */
 export const useSession: UseSession = () => {
   const { sessionCtx } = useClerkContext();
 

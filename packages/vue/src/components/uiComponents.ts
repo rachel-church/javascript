@@ -22,6 +22,11 @@ interface MountProps {
   props?: AnyObject;
 }
 
+/**
+ * A utility component that handles mounting and unmounting of Clerk UI components.
+ * The component only mounts when Clerk is fully loaded and automatically
+ * handles cleanup on unmount.
+ */
 const Portal = defineComponent((props: MountProps) => {
   const el = ref<HTMLDivElement | null>(null);
   const { loaded } = useClerkContext();

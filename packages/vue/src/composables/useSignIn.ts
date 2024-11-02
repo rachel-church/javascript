@@ -12,6 +12,29 @@ type UseSignInReturn =
 
 type UseSignIn = () => ToComputedRefs<UseSignInReturn>;
 
+/**
+ * Returns the current [`SignIn`](https://clerk.com/docs/references/javascript/sign-in/sign-in) object which provides
+ * methods and state for managing the sign-in flow.
+ *
+ * @example
+ * A simple example:
+ *
+ * <script setup>
+ * import { useSignIn } from '@clerk/vue'
+ *
+ * const { isLoaded, signIn } = useSignIn()
+ * </script>
+ *
+ * <template>
+ *   <template v-if="!isLoaded">
+ *     <!-- Handle loading state -->
+ *   </template>
+ *
+ *   <template v-else>
+ *     <div>The current sign in attempt status is {{ signIn.status }}.</div>
+ *   </template>
+ * </template>
+ */
 export const useSignIn: UseSignIn = () => {
   const { clerk, clientCtx } = useClerkContext();
 
