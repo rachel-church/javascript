@@ -10,21 +10,26 @@ interface SignOutButtonProps {
   redirectUrl?: string;
 }
 
-export const SignOutButton = defineComponent((props: SignOutButtonProps, { slots, attrs }) => {
-  const clerk = useClerk();
+export const SignOutButton = defineComponent(
+  (props: SignOutButtonProps, { slots, attrs }) => {
+    const clerk = useClerk();
 
-  function clickHandler() {
-    const signOutOptions: SignOutOptions = {
-      redirectUrl: props.signOutOptions?.redirectUrl ?? props.redirectUrl,
-      sessionId: props.signOutOptions?.sessionId ?? props.sessionId,
-    };
-    void clerk.value?.signOut(signOutOptions);
-  }
+    function clickHandler() {
+      const signOutOptions: SignOutOptions = {
+        redirectUrl: props.signOutOptions?.redirectUrl ?? props.redirectUrl,
+        sessionId: props.signOutOptions?.sessionId ?? props.sessionId,
+      };
+      void clerk.value?.signOut(signOutOptions);
+    }
 
-  return () =>
-    createUnstyledButton(slots, {
-      attrs,
-      defaultText: 'Sign out',
-      onClick: clickHandler,
-    });
-});
+    return () =>
+      createUnstyledButton(slots, {
+        attrs,
+        defaultText: 'Sign out',
+        onClick: clickHandler,
+      });
+  },
+  {
+    props: ['signOutOptions', 'sessionId', 'redirectUrl'],
+  },
+);

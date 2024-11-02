@@ -1,16 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es2018",
-    "lib": ["esnext", "DOM"],
-    "module": "esnext",
-    "moduleResolution": "node",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "strict": true,
-    "strictNullChecks": true,
-    "declaration": true,
-    "declarationDir": "./dist",
-    "esModuleInterop": true,
-    "skipDefaultLibCheck": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": false,
     "skipLibCheck": true
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]

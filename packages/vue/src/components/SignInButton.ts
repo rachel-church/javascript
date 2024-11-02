@@ -39,4 +39,7 @@ export const SignInButton = defineComponent(
         onClick: clickHandler,
       });
   },
+  {
+    props: ['signUpForceRedirectUrl', 'signUpFallbackRedirectUrl', 'fallbackRedirectUrl', 'forceRedirectUrl', 'mode'],
+  },
 );
