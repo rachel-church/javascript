@@ -12,7 +12,7 @@ import type {
 import { defineComponent, h, ref, watchEffect } from 'vue';
 
 import { useClerk } from '../composables/useClerk';
-import { useClerkContext } from '../composables/useClerkContext';
+import { ClerkLoaded } from './controlComponents';
 
 type AnyObject = Record<string, any>;
 
@@ -29,13 +29,8 @@ interface MountProps {
  */
 const Portal = defineComponent((props: MountProps) => {
   const el = ref<HTMLDivElement | null>(null);
-  const { loaded } = useClerkContext();
 
   watchEffect(onInvalidate => {
-    if (!loaded.value) {
-      return;
-    }
-
     if (el.value) {
       props.mount?.(el.value, props.props || {});
     }
@@ -47,7 +42,7 @@ const Portal = defineComponent((props: MountProps) => {
     });
   });
 
-  return () => h('div', { ref: el });
+  return () => h(ClerkLoaded, () => h('div', { ref: el }));
 });
 
 export const UserProfile = defineComponent((props: UserProfileProps) => {
