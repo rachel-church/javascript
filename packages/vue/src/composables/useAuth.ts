@@ -9,9 +9,9 @@ import type {
 import { computed, type Ref, watch } from 'vue';
 
 import { invalidStateError, useAuthHasRequiresRoleOrPermission } from '../errors/messages';
-import type { ToComputedRefs } from '../utils';
-import { toComputedRefs } from '../utils';
 import { useClerkContext } from './useClerkContext';
+import type { ToComputedRefs } from './utils';
+import { toComputedRefs } from './utils';
 
 type CheckAuthorizationSignedOut = undefined;
 type CheckAuthorizationWithoutOrgOrUser = (params?: Parameters<CheckAuthorizationWithCustomPermissions>[0]) => false;

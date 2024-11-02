@@ -1,7 +1,8 @@
 import type { SignOutOptions } from '@clerk/types';
-import { defineComponent, h, Text } from 'vue';
+import { defineComponent } from 'vue';
 
 import { useClerk } from '../composables/useClerk';
+import { createUnstyledButton } from './utils';
 
 interface SignOutButtonProps {
   signOutOptions?: SignOutOptions;
@@ -17,41 +18,13 @@ export const SignOutButton = defineComponent((props: SignOutButtonProps, { slots
       redirectUrl: props.signOutOptions?.redirectUrl ?? props.redirectUrl,
       sessionId: props.signOutOptions?.sessionId ?? props.sessionId,
     };
-    return clerk.value?.signOut(signOutOptions);
+    void clerk.value?.signOut(signOutOptions);
   }
 
-  return () => {
-    const slotContent = slots.default?.();
-    if (!slotContent) {
-      return h(
-        'button',
-        {
-          ...attrs,
-          'data-testid': 'sign-out-btn',
-          onClick: clickHandler,
-        },
-        'Sign out',
-      );
-    }
-
-    const [firstChild] = slotContent;
-
-    // If it's a text node, use it as button text
-    if (firstChild.type === Text) {
-      return h(
-        'button',
-        {
-          ...attrs,
-          'data-testid': 'sign-out-btn',
-          onClick: clickHandler,
-        },
-        slotContent,
-      );
-    }
-
-    // If it's an element, use it directly with our click handler
-    return h(firstChild, {
+  return () =>
+    createUnstyledButton(slots, {
+      attrs,
+      defaultText: 'Sign out',
       onClick: clickHandler,
     });
-  };
 });

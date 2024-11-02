@@ -1,7 +1,8 @@
 import type { SignUpProps } from '@clerk/types';
-import { defineComponent, h, Text } from 'vue';
+import { defineComponent } from 'vue';
 
 import { useClerk } from '../composables/useClerk';
+import { createUnstyledButton } from './utils';
 
 type SignUpButtonProps = {
   unsafeMetadata?: SignUpUnsafeMetadata;
@@ -26,46 +27,18 @@ export const SignUpButton = defineComponent(
         return clerk.value?.openSignUp(opts);
       }
 
-      return clerk.value?.redirectToSignUp({
+      void clerk.value?.redirectToSignUp({
         ...opts,
         signUpFallbackRedirectUrl: props.fallbackRedirectUrl,
         signUpForceRedirectUrl: props.forceRedirectUrl,
       });
     }
 
-    return () => {
-      const slotContent = slots.default?.();
-      if (!slotContent) {
-        return h(
-          'button',
-          {
-            ...attrs,
-            'data-testid': 'sign-up-btn',
-            onClick: clickHandler,
-          },
-          'Sign up',
-        );
-      }
-
-      const [firstChild] = slotContent;
-
-      // If it's a text node, use it as button text
-      if (firstChild.type === Text) {
-        return h(
-          'button',
-          {
-            ...attrs,
-            'data-testid': 'sign-up-btn',
-            onClick: clickHandler,
-          },
-          slotContent,
-        );
-      }
-
-      // If it's an element, use it directly with our click handler
-      return h(firstChild, {
+    return () =>
+      createUnstyledButton(slots, {
+        attrs,
+        defaultText: 'Sign up',
         onClick: clickHandler,
       });
-    };
   },
 );

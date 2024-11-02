@@ -5,7 +5,7 @@ import type {
   OrganizationCustomRoleKey,
   RedirectOptions,
 } from '@clerk/types';
-import { computed, defineComponent, watchEffect } from 'vue';
+import { defineComponent, watchEffect } from 'vue';
 
 import { useAuth } from '../composables/useAuth';
 import { useClerk } from '../composables/useClerk';
@@ -47,16 +47,14 @@ export const RedirectToSignIn = defineComponent((props: RedirectOptions) => {
   const { sessionCtx, clientCtx } = useClerkContext();
   const clerk = useClerk();
 
-  const hasActiveSessions = computed(
-    () => clientCtx.value?.activeSessions && clientCtx.value.activeSessions.length > 0,
-  );
-
   watchEffect(() => {
     if (!clerk.value) {
       return;
     }
 
-    if (sessionCtx.value === null && hasActiveSessions.value) {
+    const hasActiveSessions = clientCtx.value?.activeSessions && clientCtx.value.activeSessions.length > 0;
+
+    if (sessionCtx.value === null && hasActiveSessions) {
       void clerk.value.redirectToAfterSignOut();
     } else {
       void clerk.value.redirectToSignIn(props);
