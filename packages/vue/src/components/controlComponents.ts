@@ -29,17 +29,17 @@ export const SignedOut = defineComponent({
 
 export const ClerkLoaded = defineComponent({
   setup(_props, { slots }) {
-    const { loaded } = useClerkContext();
+    const clerk = useClerk();
 
-    return () => (loaded.value ? slots.default?.() : null);
+    return () => (clerk.value?.loaded ? slots.default?.() : null);
   },
 });
 
 export const ClerkLoading = defineComponent({
   setup(_props, { slots }) {
-    const { loaded } = useClerkContext();
+    const clerk = useClerk();
 
-    return () => (!loaded.value ? slots.default?.() : null);
+    return () => (!clerk.value?.loaded ? slots.default?.() : null);
   },
 });
 

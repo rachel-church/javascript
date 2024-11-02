@@ -2,7 +2,7 @@ import { deriveState } from '@clerk/shared/deriveState';
 import { loadClerkJsScript, type LoadClerkJsScriptOptions } from '@clerk/shared/loadClerkJsScript';
 import type { Clerk, ClientResource, Resources } from '@clerk/types';
 import type { Plugin } from 'vue';
-import { computed, ref, shallowRef } from 'vue';
+import { computed, ref, shallowRef, triggerRef } from 'vue';
 
 import type { VueClerkInjectionKeyType } from './types';
 import { VueClerkInjectionKey } from './types';
@@ -34,10 +34,10 @@ export const clerkPlugin: Plugin = {
     // @ts-expect-error: Internal property for SSR frameworks like Nuxt
     const { __internal_clerk_initial_state } = options;
 
-    const loaded = ref(false);
-    const clerk = ref<Clerk | null>(null);
+    const loaded = shallowRef(false);
+    const clerk = shallowRef<Clerk | null>(null);
 
-    const resources = shallowRef<Resources>({
+    const resources = ref<Resources>({
       client: {} as ClientResource,
       session: undefined,
       user: undefined,
@@ -55,6 +55,11 @@ export const clerkPlugin: Plugin = {
         clerk.value.addListener(payload => {
           resources.value = payload;
         });
+
+        // When Clerk updates its state internally, Vue's reactivity system doesn't detect
+        // the change since it's an external object being mutated. triggerRef() forces Vue
+        // to re-evaluate all dependencies regardless of how the value was changed.
+        triggerRef(clerk);
       });
     }
 
@@ -71,7 +76,6 @@ export const clerkPlugin: Plugin = {
 
     app.provide<VueClerkInjectionKeyType>(VueClerkInjectionKey, {
       clerk,
-      loaded,
       authCtx,
       clientCtx,
       sessionCtx,

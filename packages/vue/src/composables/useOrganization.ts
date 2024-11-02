@@ -56,7 +56,7 @@ type UseOrganization = () => ToComputedRefs<UseOrganizationReturn>;
  * </template>
  */
 export const useOrganization: UseOrganization = () => {
-  const { loaded, organizationCtx } = useClerkContext();
+  const { clerk, organizationCtx } = useClerkContext();
   const { session } = useSession();
 
   const result = computed<UseOrganizationReturn>(() => {
@@ -69,7 +69,7 @@ export const useOrganization: UseOrganization = () => {
     }
 
     /** In SSR context we include only the organization object when loadOrg is set to true. */
-    if (!loaded.value) {
+    if (!clerk.value?.loaded) {
       return {
         isLoaded: true,
         organization: organizationCtx.value,
@@ -78,7 +78,7 @@ export const useOrganization: UseOrganization = () => {
     }
 
     return {
-      isLoaded: loaded.value,
+      isLoaded: clerk.value.loaded,
       organization: organizationCtx.value,
       membership: getCurrentOrganizationMembership(
         session.value!.user.organizationMemberships,

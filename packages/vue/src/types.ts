@@ -10,7 +10,7 @@ import type {
   UserResource,
   Without,
 } from '@clerk/types';
-import type { ComputedRef, Ref } from 'vue';
+import type { ComputedRef, ShallowRef } from 'vue';
 
 // Copied from `@clerk/clerk-react`
 export interface HeadlessBrowserClerk extends Clerk {
@@ -25,8 +25,7 @@ export interface BrowserClerk extends HeadlessBrowserClerk {
 }
 
 export interface VueClerkInjectionKeyType {
-  clerk: Ref<Clerk | null>;
-  loaded: Ref<boolean>;
+  clerk: ShallowRef<Clerk | null>;
   authCtx: ComputedRef<{
     userId: string | null | undefined;
     sessionId: string | null | undefined;

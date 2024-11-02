@@ -6,7 +6,7 @@ import type {
   OrganizationCustomRoleKey,
   SignOut,
 } from '@clerk/types';
-import { computed, type Ref, watch } from 'vue';
+import { computed, type ShallowRef, watch } from 'vue';
 
 import { invalidStateError, useAuthHasRequiresRoleOrPermission } from '../errors/messages';
 import { useClerkContext } from './useClerkContext';
@@ -19,10 +19,10 @@ type CheckAuthorizationWithoutOrgOrUser = (params?: Parameters<CheckAuthorizatio
 /**
  * @internal
  */
-function clerkLoaded(clerk: Ref<Clerk | null>, loaded: Ref<boolean>) {
+function clerkLoaded(clerk: ShallowRef<Clerk | null>) {
   return new Promise<Clerk>(resolve => {
-    const unwatch = watch(loaded, value => {
-      if (value) {
+    const unwatch = watch(clerk, value => {
+      if (value?.loaded) {
         unwatch();
         resolve(clerk.value!);
       }
@@ -33,9 +33,9 @@ function clerkLoaded(clerk: Ref<Clerk | null>, loaded: Ref<boolean>) {
 /**
  * @internal
  */
-function createGetToken(clerk: Ref<Clerk | null>, loaded: Ref<boolean>) {
+function createGetToken(clerk: ShallowRef<Clerk | null>) {
   return async (options: any) => {
-    const loadedClerk = await clerkLoaded(clerk, loaded);
+    const loadedClerk = await clerkLoaded(clerk);
     if (!loadedClerk.session) {
       return null;
     }
@@ -47,9 +47,9 @@ function createGetToken(clerk: Ref<Clerk | null>, loaded: Ref<boolean>) {
 /**
  * @internal
  */
-function createSignOut(clerk: Ref<Clerk | null>, loaded: Ref<boolean>) {
+function createSignOut(clerk: ShallowRef<Clerk | null>) {
   return async (...args: any) => {
-    const loadedClerk = await clerkLoaded(clerk, loaded);
+    const loadedClerk = await clerkLoaded(clerk);
     return loadedClerk.signOut(...args);
   };
 }
@@ -135,13 +135,13 @@ type UseAuth = () => ToComputedRefs<UseAuthReturn>;
  * </template>
  */
 export const useAuth: UseAuth = () => {
-  const { clerk, loaded, authCtx } = useClerkContext();
+  const { clerk, authCtx } = useClerkContext();
 
   const result = computed<UseAuthReturn>(() => {
     const { sessionId, userId, actor, orgId, orgRole, orgSlug, orgPermissions } = authCtx.value;
 
-    const getToken: GetToken = createGetToken(clerk, loaded);
-    const signOut: SignOut = createSignOut(clerk, loaded);
+    const getToken: GetToken = createGetToken(clerk);
+    const signOut: SignOut = createSignOut(clerk);
 
     const has = (params: Parameters<CheckAuthorizationWithCustomPermissions>[0]) => {
       if (!params?.permission && !params?.role) {
