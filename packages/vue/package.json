@@ -50,11 +50,11 @@
   },
   "dependencies": {
     "@clerk/shared": "2.11.0",
-    "@clerk/types": "4.29.0",
-    "@vue.ts/tsx-auto-props": "^0.6.0"
+    "@clerk/types": "4.29.0"
   },
   "devDependencies": {
     "@testing-library/vue": "^8.1.0",
+    "@vue.ts/tsx-auto-props": "^0.6.0",
     "typescript": "*"
   },
   "peerDependencies": {
