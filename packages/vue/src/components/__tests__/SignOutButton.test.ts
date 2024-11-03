@@ -14,6 +14,8 @@ jest.mock('../../composables/useClerk', () => ({
     }),
 }));
 
+const url = 'https://www.clerk.com';
+
 describe('<SignOutButton />', () => {
   beforeAll(() => {
     console.error = jest.fn();
@@ -33,6 +35,31 @@ describe('<SignOutButton />', () => {
     await userEvent.click(btn);
 
     expect(mockSignOut).toHaveBeenCalled();
+  });
+
+  it('handles redirectUrl prop', async () => {
+    render(SignOutButton, {
+      props: {
+        redirectUrl: url,
+      },
+    });
+    const btn = screen.getByText('Sign out');
+    await userEvent.click(btn);
+
+    expect(mockSignOut).toHaveBeenCalledWith({ redirectUrl: url });
+  });
+
+  it('handles signOutOptions prop', async () => {
+    render(SignOutButton, {
+      props: {
+        redirectUrl: url,
+        sessionId: 'sess_1yDceUR8SIKtQ0gIOO8fNsW7nhe',
+      },
+    });
+    const btn = screen.getByText('Sign out');
+    await userEvent.click(btn);
+
+    expect(mockSignOut).toHaveBeenCalledWith({ redirectUrl: url, sessionId: 'sess_1yDceUR8SIKtQ0gIOO8fNsW7nhe' });
   });
 
   it('uses text passed as children', async () => {
