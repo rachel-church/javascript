@@ -15,8 +15,9 @@ export default defineConfig(() => {
     minify: false,
     dts: true,
     esbuildPlugins: [
-      // Automatically generates runtime props from TypeScript types/interfaces, adding
-      // them to Vue components during build via Object.defineProperty.
+      // Automatically generates runtime props from TypeScript types/interfaces for all
+      // control and UI components, adding them to Vue components during build via
+      // Object.defineProperty
       autoPropsPlugin({
         include: ['**/*.ts'],
       }) as EsbuildPlugin,
