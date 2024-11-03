@@ -15,11 +15,8 @@ export default defineConfig(() => {
     minify: false,
     dts: true,
     esbuildPlugins: [
-      // Automatically extracts prop names from TypeScript interfaces/types and adds them
-      // as runtime props to Vue components during build. This enables proper runtime prop
-      // validation without manually declaring props. For example, if a component uses
-      // SignInProps type, the plugin will generate Object.defineProperty to add all prop
-      // names from that type to the component's props definition.
+      // Automatically generates runtime props from TypeScript types/interfaces, adding
+      // them to Vue components during build via Object.defineProperty.
       autoPropsPlugin({
         include: ['**/*.ts'],
       }) as EsbuildPlugin,
