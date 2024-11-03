@@ -1,7 +1,9 @@
 import autoPropsPlugin from '@vue.ts/tsx-auto-props/esbuild';
-import { defineConfig } from 'tsup';
+import { defineConfig, type Options } from 'tsup';
 
 import { name, version } from './package.json';
+
+type EsbuildPlugin = NonNullable<Options['esbuildPlugins']>[number];
 
 export default defineConfig(() => {
   return {
@@ -13,10 +15,14 @@ export default defineConfig(() => {
     minify: false,
     dts: true,
     esbuildPlugins: [
-      // Adds runtime props type generation from TS types
+      // Automatically extracts prop names from TypeScript interfaces/types and adds them
+      // as runtime props to Vue components during build. This enables proper runtime prop
+      // validation without manually declaring props. For example, if a component uses
+      // SignInProps type, the plugin will generate Object.defineProperty to add all prop
+      // names from that type to the component's props definition.
       autoPropsPlugin({
         include: ['**/*.ts'],
-      }),
+      }) as EsbuildPlugin,
     ],
     define: {
       PACKAGE_NAME: `"${name}"`,
