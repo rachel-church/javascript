@@ -8,6 +8,7 @@ import type {
 } from '@clerk/types';
 import { computed, type ShallowRef, watch } from 'vue';
 
+import { errorThrower } from '../errors/errorThrower';
 import { invalidStateError, useAuthHasRequiresRoleOrPermission } from '../errors/messages';
 import { useClerkContext } from './useClerkContext';
 import type { ToComputedRefs } from './utils';
@@ -145,7 +146,7 @@ export const useAuth: UseAuth = () => {
 
     const has = (params: Parameters<CheckAuthorizationWithCustomPermissions>[0]) => {
       if (!params?.permission && !params?.role) {
-        throw new Error(useAuthHasRequiresRoleOrPermission);
+        return errorThrower.throw(useAuthHasRequiresRoleOrPermission);
       }
       if (!orgId || !userId || !orgRole || !orgPermissions) {
         return false;
@@ -226,7 +227,7 @@ export const useAuth: UseAuth = () => {
       };
     }
 
-    throw new Error(invalidStateError);
+    return errorThrower.throw(invalidStateError);
   });
 
   return toComputedRefs(result);
