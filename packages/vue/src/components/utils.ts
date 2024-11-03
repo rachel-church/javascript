@@ -1,6 +1,12 @@
-import { h, type Slots, Text } from 'vue';
+import { h, type Slots, Text, type VNode } from 'vue';
+
+import { errorThrower } from '../errors/errorThrower';
+import { multipleChildrenInButtonComponent } from '../errors/messages';
+
+type ButtonName = 'SignInButton' | 'SignUpButton' | 'SignOutButton' | 'SignInWithMetamaskButton';
 
 interface CreateUnstyledButtonOptions {
+  name: ButtonName;
   attrs?: Record<string, any>;
   onClick: (event: MouseEvent) => void;
   defaultText: string;
@@ -14,7 +20,7 @@ interface CreateUnstyledButtonOptions {
  * - A button with the provided text if slot contains text
  * - The provided element (e.g. button, div) with click handler if slot contains an element
  */
-export function createUnstyledButton(slots: Slots, options: CreateUnstyledButtonOptions) {
+export const createUnstyledButton = (slots: Slots, options: CreateUnstyledButtonOptions) => {
   const { onClick, attrs = {}, defaultText } = options;
   const slotContent = slots.default?.();
 
@@ -30,10 +36,10 @@ export function createUnstyledButton(slots: Slots, options: CreateUnstyledButton
     );
   }
 
-  const [firstChild] = slotContent;
+  const child = assertSingleChild(slotContent, options.name);
 
   // If it's a text node, use it as button text
-  if (firstChild.type === Text) {
+  if (child.type === Text) {
     return h(
       'button',
       {
@@ -45,7 +51,15 @@ export function createUnstyledButton(slots: Slots, options: CreateUnstyledButton
   }
 
   // If it's an element, use it directly with our click handler
-  return h(firstChild, {
+  return h(child, {
     onClick,
   });
-}
+};
+
+const assertSingleChild = (slotContent: VNode[], name: ButtonName): VNode => {
+  if (slotContent.length > 1) {
+    return errorThrower.throw(multipleChildrenInButtonComponent(name));
+  }
+
+  return slotContent[0];
+};

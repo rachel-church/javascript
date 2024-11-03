@@ -24,6 +24,7 @@ export const SignOutButton = defineComponent(
 
     return () =>
       createUnstyledButton(slots, {
+        name: 'SignOutButton',
         attrs,
         defaultText: 'Sign out',
         onClick: clickHandler,

@@ -34,6 +34,7 @@ export const SignInButton = defineComponent(
 
     return () =>
       createUnstyledButton(slots, {
+        name: 'SignInButton',
         attrs,
         defaultText: 'Sign in',
         onClick: clickHandler,

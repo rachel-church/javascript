@@ -87,4 +87,14 @@ describe('<SignUpButton />', () => {
     render(Button);
     screen.getByText('text');
   });
+
+  it('throws if multiple children provided', async () => {
+    const Button = defineComponent(() => {
+      return () => h(SignUpButton, () => [h('button', { type: 'button' }, '1'), h('button', { type: 'button' }, '2')]);
+    });
+
+    expect(() => {
+      render(Button);
+    }).toThrow();
+  });
 });
