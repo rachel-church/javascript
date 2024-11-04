@@ -1,8 +1,8 @@
 import type { SignUpProps } from '@clerk/types';
-import { defineComponent } from 'vue';
+import { defineComponent, h } from 'vue';
 
 import { useClerk } from '../composables/useClerk';
-import { createUnstyledButton } from './utils';
+import { assertSingleChild, normalizeWithDefaultValue } from './utils';
 
 type SignUpButtonProps = {
   unsafeMetadata?: SignUpUnsafeMetadata;
@@ -34,13 +34,14 @@ export const SignUpButton = defineComponent(
       });
     }
 
-    return () =>
-      createUnstyledButton(slots, {
-        name: 'SignUpButton',
-        attrs,
-        defaultText: 'Sign up',
+    return () => {
+      const children = normalizeWithDefaultValue(slots.default?.(), 'Sign up');
+      const child = assertSingleChild(children, 'SignUpButton');
+      return h(child, {
+        ...attrs,
         onClick: clickHandler,
       });
+    };
   },
   {
     props: [

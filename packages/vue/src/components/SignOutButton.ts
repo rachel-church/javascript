@@ -1,8 +1,8 @@
 import type { SignOutOptions } from '@clerk/types';
-import { defineComponent } from 'vue';
+import { defineComponent, h } from 'vue';
 
 import { useClerk } from '../composables/useClerk';
-import { createUnstyledButton } from './utils';
+import { assertSingleChild, normalizeWithDefaultValue } from './utils';
 
 interface SignOutButtonProps {
   signOutOptions?: SignOutOptions;
@@ -22,13 +22,14 @@ export const SignOutButton = defineComponent(
       void clerk.value?.signOut(signOutOptions);
     }
 
-    return () =>
-      createUnstyledButton(slots, {
-        name: 'SignOutButton',
-        attrs,
-        defaultText: 'Sign out',
+    return () => {
+      const children = normalizeWithDefaultValue(slots.default?.(), 'Sign out');
+      const child = assertSingleChild(children, 'SignOutButton');
+      return h(child, {
+        ...attrs,
         onClick: clickHandler,
       });
+    };
   },
   {
     props: ['signOutOptions', 'sessionId', 'redirectUrl'],

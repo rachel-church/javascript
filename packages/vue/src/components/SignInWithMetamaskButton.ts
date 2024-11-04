@@ -1,8 +1,8 @@
 import type { RedirectUrlProp } from '@clerk/types';
-import { defineComponent } from 'vue';
+import { defineComponent, h } from 'vue';
 
 import { useClerk } from '../composables/useClerk';
-import { createUnstyledButton } from './utils';
+import { assertSingleChild, normalizeWithDefaultValue } from './utils';
 
 export const SignInWithMetamaskButton = defineComponent(
   (
@@ -17,13 +17,14 @@ export const SignInWithMetamaskButton = defineComponent(
       void clerk.value?.authenticateWithMetamask({ redirectUrl: props.redirectUrl || undefined });
     }
 
-    return () =>
-      createUnstyledButton(slots, {
-        name: 'SignInWithMetamaskButton',
-        attrs,
-        defaultText: 'Sign in with Metamask',
+    return () => {
+      const children = normalizeWithDefaultValue(slots.default?.(), 'Sign in with Metamask');
+      const child = assertSingleChild(children, 'SignInWithMetamaskButton');
+      return h(child, {
+        ...attrs,
         onClick: clickHandler,
       });
+    };
   },
   {
     props: ['redirectUrl', 'mode'],

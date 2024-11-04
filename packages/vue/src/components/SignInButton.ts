@@ -1,8 +1,8 @@
 import type { SignInProps } from '@clerk/types';
-import { defineComponent } from 'vue';
+import { defineComponent, h } from 'vue';
 
 import { useClerk } from '../composables/useClerk';
-import { createUnstyledButton } from './utils';
+import { assertSingleChild, normalizeWithDefaultValue } from './utils';
 
 type SignInButtonProps = Pick<
   SignInProps,
@@ -32,13 +32,14 @@ export const SignInButton = defineComponent(
       });
     }
 
-    return () =>
-      createUnstyledButton(slots, {
-        name: 'SignInButton',
-        attrs,
-        defaultText: 'Sign in',
+    return () => {
+      const children = normalizeWithDefaultValue(slots.default?.(), 'Sign in');
+      const child = assertSingleChild(children, 'SignInButton');
+      return h(child, {
+        ...attrs,
         onClick: clickHandler,
       });
+    };
   },
   {
     props: ['signUpForceRedirectUrl', 'signUpFallbackRedirectUrl', 'fallbackRedirectUrl', 'forceRedirectUrl', 'mode'],
