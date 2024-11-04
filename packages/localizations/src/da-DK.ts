@@ -502,12 +502,30 @@ export const daDK: LocalizationResource = {
         title: 'E-mail er bekræftet',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Indtast bekræftelseskoden sendt til dit telefonnummer',
       formTitle: 'Bekræftelseskode',
       resendButton: 'Send kode igen',
       subtitle: 'Fortsæt til {{applicationName}}',
       title: 'Bekræft din telefon',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Log ind',

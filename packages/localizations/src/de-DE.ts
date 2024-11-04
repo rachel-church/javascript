@@ -509,12 +509,30 @@ export const deDE: LocalizationResource = {
         title: 'E-Mail erfolgreich verifiziert',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Geben Sie den Bestätigungscode ein, der an Ihre Telefonnummer gesendet wurde',
       formTitle: 'Bestätigungscode',
       resendButton: 'Code erneut senden',
       subtitle: 'weiter zu {{applicationName}}',
       title: 'Verifizieren Sie Ihre Telefonnummer',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Einloggen',

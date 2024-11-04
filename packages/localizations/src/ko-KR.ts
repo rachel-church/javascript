@@ -498,12 +498,30 @@ export const koKR: LocalizationResource = {
         title: '이메일 인증 성공',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: '휴대폰 번호로 전송된 인증 코드를 입력하세요.',
       formTitle: '인증 코드',
       resendButton: '코드 재전송',
       subtitle: '휴대폰으로 전송된 인증 코드를 입력하세요',
       title: '휴대폰 번호 인증',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: '로그인하기',

@@ -503,12 +503,30 @@ export const huHU: LocalizationResource = {
         title: 'Sikeresen megerősítetted az email címed',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Írd be a visszaigazoló kódot, amit a telefondra kaptál',
       formTitle: 'Visszaigazoló kód',
       resendButton: 'Nem kaptad meg a kódot? Újraküldés',
       subtitle: 'Írd be a visszaigazoló kódot, amit a telefonodra kaptál',
       title: 'Erősítsd meg a telefonszámod',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Bejelentkezés',

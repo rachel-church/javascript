@@ -496,12 +496,30 @@ export const heIL: LocalizationResource = {
         title: 'אימות דוא"ל הצליח',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'הכנס את קוד האימות שנשלח למספר הטלפון שלך',
       formTitle: 'קוד אימות',
       resendButton: 'שלח קוד שוב',
       subtitle: 'להמשיך אל {{applicationName}}',
       title: 'אמת את מספר הטלפון שלך',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'התחבר',

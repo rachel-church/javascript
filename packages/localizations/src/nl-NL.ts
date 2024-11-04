@@ -503,12 +503,30 @@ export const nlNL: LocalizationResource = {
         title: 'E-mail bevestigd',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Voer de verificatiecode in die verzonden is naar je telefoonnummer',
       formTitle: 'Verificatiecode',
       resendButton: 'Verstuur code opnieuw',
       subtitle: 'om door te gaan naar {{applicationName}}',
       title: 'Bevestig je telefoonnummer',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Inloggen',
@@ -522,6 +540,7 @@ export const nlNL: LocalizationResource = {
   socialButtonsBlockButton: 'Ga verder met {{provider|titleize}}',
   socialButtonsBlockButtonManyInView: 'Ga verder met {{provider|titleize}}',
   unstable__errors: {
+    already_a_member_in_organization: undefined,
     captcha_invalid:
       'Sign up unsuccessful due to failed security validations. Please refresh the page to try again or reach out to support for more assistance.',
     captcha_unavailable:
@@ -539,6 +558,7 @@ export const nlNL: LocalizationResource = {
     form_param_max_length_exceeded__last_name: 'Achternaam moet minder dan 256 tekens bevatten.',
     form_param_max_length_exceeded__name: 'Naam moet minder dan 256 tekens bevatten.',
     form_param_nil: undefined,
+    form_param_value_invalid: undefined,
     form_password_incorrect: undefined,
     form_password_length_too_short: undefined,
     form_password_not_strong_enough: 'Je wachtwoord is niet sterk genoeg.',
@@ -551,6 +571,10 @@ export const nlNL: LocalizationResource = {
     form_username_invalid_length: undefined,
     identification_deletion_failed: 'Je kunt je laatste identificatie niet verwijderen.',
     not_allowed_access: undefined,
+    organization_domain_blocked: undefined,
+    organization_domain_common: undefined,
+    organization_membership_quota_exceeded: undefined,
+    organization_minimum_permissions_needed: undefined,
     passkey_already_exists: 'Deze passkey bestaat al.',
     passkey_not_supported: 'Passkeys worden niet ondersteund door deze browser.',
     passkey_pa_not_supported: 'Passkeys worden niet ondersteund door deze browser.',

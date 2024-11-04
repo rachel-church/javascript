@@ -504,12 +504,30 @@ export const trTR: LocalizationResource = {
         title: 'E-posta adresiniz başarıyla doğrulandı',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Telefon numaranıza gönderdiğimiz doğrulama kodunu giriniz',
       formTitle: 'Doğrulama kodu',
       resendButton: 'Kodu tekrar gönder',
       subtitle: '{{applicationName}} ile devam etmek için',
       title: 'Telefon numaranızı doğrulayın',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Giriş yap',

@@ -501,12 +501,30 @@ export const ptPT: LocalizationResource = {
         title: 'E-mail verificado com sucesso',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Insira o código enviado para o seu telemóvel',
       formTitle: 'Código de verificação',
       resendButton: 'Não recebeu o código? Reenviar',
       subtitle: 'para continuar em {{applicationName}}',
       title: 'Verifique o seu telemóvel',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Entrar',

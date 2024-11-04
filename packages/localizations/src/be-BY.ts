@@ -506,12 +506,30 @@ export const beBY: LocalizationResource = {
         title: 'Пошта верыфікавана',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Увядзіце верыфікацыйны код, адправлены на Ваш тэлефон',
       formTitle: 'Верыфікацыйны код',
       resendButton: 'Пераадправіць код',
       subtitle: 'каб працягнуць працу ў "{{applicationName}}"',
       title: 'Верыфікуйце Ваш нумар тэлефона',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Увайсці',
@@ -789,7 +807,6 @@ export const beBY: LocalizationResource = {
       successMessage: 'Ваш профіль быў абноўлены.',
       title: 'Абнавіць профіль',
     },
-
     start: {
       activeDevicesSection: {
         destructiveAction: 'Выйсці з прылады',

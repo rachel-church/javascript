@@ -506,12 +506,30 @@ export const isIS: LocalizationResource = {
         title: 'Tókst að staðfesta netfang',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Sláðu inn staðfestingarkóðann sem sendur var á símanúmerið þitt',
       formTitle: 'Staðfestingarkóði',
       resendButton: 'Fékkstu ekki kóða? Senda aftur',
       subtitle: 'Sláðu inn staðfestingarkóðann sem sendur var á símanúmerið þitt',
       title: 'Staðfesta símanúmer',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Skrá inn',

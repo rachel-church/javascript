@@ -498,12 +498,30 @@ export const zhTW: LocalizationResource = {
         title: '成功驗證電子郵件',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: '輸入發送到您的電話號碼的驗證碼',
       formTitle: '驗證碼',
       resendButton: '重新發送驗證碼',
       subtitle: '繼續使用 {{applicationName}}',
       title: '驗證您的電話',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: '登錄',

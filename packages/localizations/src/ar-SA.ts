@@ -502,12 +502,30 @@ export const arSA: LocalizationResource = {
         title: 'تم التحقق بنجاح من البريد الإلكتروني',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'أدخل رمز التحقق المرسل إلى هاتفك',
       formTitle: 'رمز التحقق',
       resendButton: 'لم يصلك الرمز؟ حاول مرة أخرى',
       subtitle: 'للمتابعة إلى {{applicationName}}',
       title: 'تحقق من هاتفك',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'تسجيل الدخول',

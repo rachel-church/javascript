@@ -503,12 +503,30 @@ export const nbNO: LocalizationResource = {
         title: 'E-posten ble verifisert',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Skriv inn verifiseringskoden som er sendt til telefonnummeret ditt',
       formTitle: 'Verifiseringskode',
       resendButton: 'Send kode på nytt',
       subtitle: 'for å fortsette til {{applicationName}}',
       title: 'Verifiser telefonen din',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Logg inn',

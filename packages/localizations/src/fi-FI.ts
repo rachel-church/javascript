@@ -504,12 +504,30 @@ export const fiFI: LocalizationResource = {
         title: 'Rekisteröitynyt toiseen välilehteen',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Syötä puhelimeesi lähetetty koodi',
       formTitle: 'Vahvistuskoodi',
       resendButton: 'Etkö saanut koodia? Lähetä uudelleen',
       subtitle: 'Syötä puhelimeesi lähetetty koodi jatkaaksesi.',
       title: 'Tarkista puhelimesi',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Kirjaudu sisään',

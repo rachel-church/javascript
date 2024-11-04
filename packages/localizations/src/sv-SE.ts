@@ -506,12 +506,30 @@ export const svSE: LocalizationResource = {
         title: 'E-posten har verifierats',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Ange verifieringskoden som skickades till ditt telefonnummer',
       formTitle: 'Verifieringskod',
       resendButton: 'Skicka koden igen',
       subtitle: 'för att fortsätta till {{applicationName}}',
       title: 'Verifiera din telefon',
+    },
+    restrictedAccess: {
+      actionLink: 'Tillbaka till inloggning',
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: 'Åtkomst till denna app är begränsad och en inbjudan krävs för att registrera sig.',
+      title: 'Begränsad åtkomst',
     },
     start: {
       actionLink: 'Logga in',
@@ -520,11 +538,6 @@ export const svSE: LocalizationResource = {
       actionText: 'Har du redan ett konto?',
       subtitle: 'för att fortsätta till {{applicationName}}',
       title: 'Skapa ditt konto',
-    },
-    restrictedAccess: {
-      title: 'Begränsad åtkomst',
-      subtitle: 'Åtkomst till denna app är begränsad och en inbjudan krävs för att registrera sig.',
-      actionLink: 'Tillbaka till inloggning',
     },
   },
   socialButtonsBlockButton: 'Fortsätt med {{provider|titleize}}',

@@ -503,12 +503,30 @@ export const jaJP: LocalizationResource = {
         title: 'メールアドレスが正常に確認されました',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: '電話番号に送信された確認コードを入力してください',
       formTitle: '確認コード',
       resendButton: 'コードを再送信',
       subtitle: '{{applicationName}}へのアクセスを続ける',
       title: '電話番号を確認',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'サインイン',

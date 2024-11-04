@@ -502,12 +502,30 @@ export const srRS: LocalizationResource = {
         title: 'Uspešno verifikovan e-mail',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Unesi verifikacioni kod poslat na tvoj telefonski broj',
       formTitle: 'Verifikacioni kod',
       resendButton: 'Nisi primio kod? Pošalji ponovo',
       subtitle: 'Unesi verifikacioni kod poslat na tvoj telefon',
       title: 'Verifikuj svoj telefon',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Prijavi se',

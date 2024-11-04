@@ -493,12 +493,31 @@ export const enUS: LocalizationResource = {
         title: 'Successfully verified email',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: 'I agree to the {{ privacyPolicyLink || link("Privacy Policy") }}',
+        label__onlyTermsOfService: 'I agree to the {{ termsOfServiceLink || link("Terms of Service") }}',
+        label__termsOfServiceAndPrivacyPolicy:
+          'I agree to the {{ termsOfServiceLink || link("Terms of Service") }} and {{ privacyPolicyLink || link("Privacy Policy") }}',
+      },
+      continue: {
+        subtitle: 'Please read and accept the terms to continue',
+        title: 'Legal consent',
+      },
+    },
     phoneCode: {
       formSubtitle: 'Enter the verification code sent to your phone number',
       formTitle: 'Verification code',
       resendButton: "Didn't receive a code? Resend",
       subtitle: 'Enter the verification code sent to your phone',
       title: 'Verify your phone',
+    },
+    restrictedAccess: {
+      actionLink: 'Sign in',
+      actionText: 'Already have an account?',
+      blockButton__emailSupport: 'Email support',
+      subtitle: 'Sign ups are currently disabled. If you believe you should have access, please contact support.',
+      title: 'Access restricted',
     },
     start: {
       actionLink: 'Sign in',
@@ -507,25 +526,6 @@ export const enUS: LocalizationResource = {
       actionText: 'Already have an account?',
       subtitle: 'Welcome! Please fill in the details to get started.',
       title: 'Create your account',
-    },
-    restrictedAccess: {
-      title: 'Access restricted',
-      subtitle: 'Sign ups are currently disabled. If you believe you should have access, please contact support.',
-      actionLink: 'Sign in',
-      actionText: 'Already have an account?',
-      blockButton__emailSupport: 'Email support',
-    },
-    __experimental_legalConsent: {
-      continue: {
-        subtitle: 'Please read and accept the terms to continue',
-        title: 'Legal consent',
-      },
-      checkbox: {
-        label__termsOfServiceAndPrivacyPolicy:
-          'I agree to the {{ termsOfServiceLink || link("Terms of Service") }} and {{ privacyPolicyLink || link("Privacy Policy") }}',
-        label__onlyTermsOfService: 'I agree to the {{ termsOfServiceLink || link("Terms of Service") }}',
-        label__onlyPrivacyPolicy: 'I agree to the {{ privacyPolicyLink || link("Privacy Policy") }}',
-      },
     },
   },
   socialButtonsBlockButton: 'Continue with {{provider|titleize}}',

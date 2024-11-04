@@ -499,12 +499,30 @@ export const thTH: LocalizationResource = {
         title: 'ยืนยันอีเมลสำเร็จ',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'ใส่รหัสยืนยันที่ส่งไปยังหมายเลขโทรศัพท์ของคุณ',
       formTitle: 'รหัสยืนยัน',
       resendButton: 'ไม่ได้รับรหัส? ส่งใหม่',
       subtitle: 'ใส่รหัสยืนยันที่ส่งไปยังโทรศัพท์ของคุณ',
       title: 'ยืนยันโทรศัพท์ของคุณ',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'เข้าสู่ระบบ',

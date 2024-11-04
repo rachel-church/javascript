@@ -503,12 +503,30 @@ export const elGR: LocalizationResource = {
         title: 'Επιτυχής επαλήθευση email',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Εισαγάγετε τον κωδικό επαλήθευσης που απεστάλη στον αριθμό τηλεφώνου σας',
       formTitle: 'Κωδικός επαλήθευσης',
       resendButton: 'Δεν λάβατε κωδικό; Αποστολή ξανά',
       subtitle: 'για να συνεχίσετε στο {{applicationName}}',
       title: 'Επαληθεύστε το τηλέφωνό σας',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Σύνδεση',

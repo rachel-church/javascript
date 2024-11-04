@@ -501,12 +501,30 @@ export const viVN: LocalizationResource = {
         title: 'Xác minh email thành công',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Nhập mã xác minh đã được gửi đến số điện thoại của bạn',
       formTitle: 'Mã xác minh',
       resendButton: 'Không nhận được mã? Gửi lại',
       subtitle: 'để tiếp tục với {{applicationName}}',
       title: 'Xác minh số điện thoại của bạn',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Đăng nhập',

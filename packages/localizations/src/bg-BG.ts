@@ -503,12 +503,30 @@ export const bgBG: LocalizationResource = {
         title: 'Успешно потвърден имейл',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Въведете кода за потвърждение, изпратен на вашия телефонен номер',
       formTitle: 'Код за потвърждение',
       resendButton: 'Не сте получили код? Изпрати отново',
       subtitle: 'Въведете кода за потвърждение, изпратен на вашия телефон',
       title: 'Потвърдете вашия телефон',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Влезте',

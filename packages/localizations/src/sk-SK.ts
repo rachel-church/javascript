@@ -501,12 +501,30 @@ export const skSK: LocalizationResource = {
         title: 'Email úspešne overený',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Zadajte overovací kód poslaný na vaše telefónne číslo',
       formTitle: 'Overovací kód',
       resendButton: 'Znovu poslať kód',
       subtitle: 'pre pokračovanie do {{applicationName}}',
       title: 'Overte svoj telefón',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Prihlásiť sa',

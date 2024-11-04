@@ -492,12 +492,30 @@ export const zhCN: LocalizationResource = {
         title: '成功验证电子邮件',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: '输入发送到您的电话号码的验证码',
       formTitle: '验证码',
       resendButton: '重新发送验证码',
       subtitle: '继续使用 {{applicationName}}',
       title: '验证您的电话',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: '登录',

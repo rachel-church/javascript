@@ -501,12 +501,30 @@ export const ukUA: LocalizationResource = {
         title: 'Успішно перевірено email',
       },
     },
+    legalConsent: {
+      checkbox: {
+        label__onlyPrivacyPolicy: undefined,
+        label__onlyTermsOfService: undefined,
+        label__termsOfServiceAndPrivacyPolicy: undefined,
+      },
+      continue: {
+        subtitle: undefined,
+        title: undefined,
+      },
+    },
     phoneCode: {
       formSubtitle: 'Введіть код підтвердження, надісланий на ваш номер телефону',
       formTitle: 'Код підтвердження',
       resendButton: 'Не отримали код? Повторно відправити',
       subtitle: 'продовжити з {{applicationName}}',
       title: 'Підтвердіть свій телефон',
+    },
+    restrictedAccess: {
+      actionLink: undefined,
+      actionText: undefined,
+      blockButton__emailSupport: undefined,
+      subtitle: undefined,
+      title: undefined,
     },
     start: {
       actionLink: 'Увійти',
