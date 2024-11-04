@@ -11,36 +11,28 @@ import { useAuth } from '../composables/useAuth';
 import { useClerk } from '../composables/useClerk';
 import { useClerkContext } from '../composables/useClerkContext';
 
-export const SignedIn = defineComponent({
-  setup(_props, { slots }) {
-    const { userId } = useAuth();
+export const SignedIn = defineComponent((_, { slots }) => {
+  const { userId } = useAuth();
 
-    return () => (userId.value ? slots.default?.() : null);
-  },
+  return () => (userId.value ? slots.default?.() : null);
 });
 
-export const SignedOut = defineComponent({
-  setup(_props, { slots }) {
-    const { userId } = useAuth();
+export const SignedOut = defineComponent((_, { slots }) => {
+  const { userId } = useAuth();
 
-    return () => (userId.value === null ? slots.default?.() : null);
-  },
+  return () => (userId.value === null ? slots.default?.() : null);
 });
 
-export const ClerkLoaded = defineComponent({
-  setup(_props, { slots }) {
-    const clerk = useClerk();
+export const ClerkLoaded = defineComponent((_, { slots }) => {
+  const clerk = useClerk();
 
-    return () => (clerk.value?.loaded ? slots.default?.() : null);
-  },
+  return () => (clerk.value?.loaded ? slots.default?.() : null);
 });
 
-export const ClerkLoading = defineComponent({
-  setup(_props, { slots }) {
-    const clerk = useClerk();
+export const ClerkLoading = defineComponent((_, { slots }) => {
+  const clerk = useClerk();
 
-    return () => (!clerk.value?.loaded ? slots.default?.() : null);
-  },
+  return () => (!clerk.value?.loaded ? slots.default?.() : null);
 });
 
 export const RedirectToSignIn = defineComponent((props: RedirectOptions) => {
