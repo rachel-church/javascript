@@ -30,6 +30,7 @@ export type ClerkBackendApiResponse<T> =
       data: T;
       errors: null;
       totalCount?: number;
+      response?: Response | undefined;
     }
   | {
       data: null;
@@ -38,6 +39,7 @@ export type ClerkBackendApiResponse<T> =
       clerkTraceId?: string;
       status?: number;
       statusText?: string;
+      response?: Response | undefined;
     };
 
 export type RequestFunction = ReturnType<typeof buildRequest>;
@@ -119,12 +121,14 @@ export function buildRequest(options: BuildRequestOptions) {
           status: res?.status,
           statusText: res?.statusText,
           clerkTraceId: getTraceId(responseBody, res?.headers),
+          response: res,
         };
       }
 
       return {
         ...deserialize<T>(responseBody),
         errors: null,
+        response: res,
       };
     } catch (err) {
       if (err instanceof Error) {
@@ -146,6 +150,7 @@ export function buildRequest(options: BuildRequestOptions) {
         status: res?.status,
         statusText: res?.statusText,
         clerkTraceId: getTraceId(err, res?.headers),
+        response: res,
       };
     }
   };
