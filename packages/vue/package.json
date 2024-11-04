@@ -44,9 +44,8 @@
     "lint:attw": "attw --pack .",
     "lint:publint": "publint",
     "publish:local": "npx yalc push --replace --sig",
-    "test": "jest",
-    "test:cache:clear": "jest --clearCache --useStderr",
-    "test:ci": "jest --maxWorkers=70%"
+    "test": "vitest",
+    "test:ci": "vitest --maxWorkers=70%"
   },
   "dependencies": {
     "@clerk/shared": "2.11.3",

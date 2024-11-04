@@ -1,13 +1,14 @@
 import { userEvent } from '@testing-library/user-event';
 import { render, screen } from '@testing-library/vue';
+import { vi } from 'vitest';
 import { defineComponent, h, ref } from 'vue';
 
 import { SignInWithMetamaskButton } from '../SignInWithMetamaskButton';
 
-const mockAuthenticatewithMetamask = jest.fn();
+const mockAuthenticatewithMetamask = vi.fn();
 const originalError = console.error;
 
-jest.mock('../../composables/useClerk', () => ({
+vi.mock('../../composables/useClerk', () => ({
   useClerk: () =>
     ref({
       authenticateWithMetamask: mockAuthenticatewithMetamask,
@@ -18,7 +19,7 @@ const url = 'https://www.clerk.com';
 
 describe('<SignInWithMetamaskButton />', () => {
   beforeAll(() => {
-    console.error = jest.fn();
+    console.error = vi.fn();
   });
 
   beforeEach(() => {

@@ -1,13 +1,14 @@
 import { userEvent } from '@testing-library/user-event';
 import { render, screen } from '@testing-library/vue';
+import { vi } from 'vitest';
 import { defineComponent, h, ref } from 'vue';
 
 import { SignUpButton } from '../SignUpButton';
 
-const mockRedirectToSignUp = jest.fn();
+const mockRedirectToSignUp = vi.fn();
 const originalError = console.error;
 
-jest.mock('../../composables/useClerk', () => ({
+vi.mock('../../composables/useClerk', () => ({
   useClerk: () =>
     ref({
       redirectToSignUp: mockRedirectToSignUp,
@@ -18,7 +19,7 @@ const url = 'https://www.clerk.com';
 
 describe('<SignUpButton />', () => {
   beforeAll(() => {
-    console.error = jest.fn();
+    console.error = vi.fn();
   });
 
   beforeEach(() => {
@@ -65,7 +66,7 @@ describe('<SignUpButton />', () => {
   });
 
   it('renders passed button and calls both click handlers', async () => {
-    const handler = jest.fn();
+    const handler = vi.fn();
 
     const Button = defineComponent(() => {
       return () => h(SignUpButton, null, () => h('button', { onClick: handler, type: 'button' }, 'custom button'));
