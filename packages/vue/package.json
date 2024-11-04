@@ -49,7 +49,7 @@
     "test:ci": "jest --maxWorkers=70%"
   },
   "dependencies": {
-    "@clerk/shared": "2.11.0",
+    "@clerk/shared": "2.11.3",
     "@clerk/types": "4.29.0"
   },
   "devDependencies": {
